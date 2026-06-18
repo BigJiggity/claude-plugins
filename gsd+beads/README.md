@@ -47,14 +47,51 @@ non-GSD or non-beads repos.
 After both `.planning/` and `.beads/` exist, every `/gsd:*` command follows the
 integration convention (see the bundled `gsd-beads` skill).
 
+## Two-way sync to external tools (optional)
+
+Mirror bd issues to **GitHub Issues, Jira, Asana, and/or Azure Boards** —
+**hub-and-spoke, pull-on-demand**. bd is the hub and source of truth; every tool
+syncs to bd, never tool-to-tool.
+
+- **PUSH** (bd → tools): fires on bd lifecycle events (create / claim / close).
+- **PULL** (tools → bd): `/gsd-beads:sync-pull` reconciles external edits back
+  into bd with **last-writer-wins by timestamp**; genuine both-sides-changed
+  cases are logged to `.gsd-beads/conflicts.json`.
+
+Setup:
+
+```text
+/gsd-beads:sync-config     # pick backends, write .gsd-beads/sync.json
+# export the API tokens it tells you to (tokens are referenced by ENV VAR NAME,
+# never stored in the repo)
+/gsd-beads:sync-pull       # reconcile external edits into bd, on demand
+```
+
+Each tool is a small **adapter** in `adapters/` implementing a simple
+stdin/stdout contract (`adapters/_contract.md`). Add another tool (Linear,
+Trello, …) by dropping in one adapter and a `sync.json` block — no dispatcher
+changes. Adapters read API tokens from environment variables named in
+`sync.json`; **no secrets are ever written to disk**.
+
+> GitHub is live-tested (via the `gh` CLI's auth). Jira / Asana / Azure Boards
+> adapters are implemented to each tool's REST spec; supply the relevant API
+> token env var to use them.
+
 ## Components
 
 | Path | Purpose |
 |---|---|
-| `skills/gsd-beads/SKILL.md` | the integration convention (loaded on demand) |
-| `commands/init.md` | `/gsd-beads:init` — bootstrap a repo |
-| `hooks/session-start.sh` | injects an "integration active" reminder when both dirs present |
+| `skills/gsd-beads/SKILL.md` | the GSD↔bd integration convention |
+| `skills/gsd-beads-sync/SKILL.md` | the bd↔external-tools sync convention |
+| `commands/init.md` | `/gsd-beads:init` — bootstrap a repo (git + bd init) |
+| `commands/sync-config.md` | `/gsd-beads:sync-config` — configure backends |
+| `commands/sync-pull.md` | `/gsd-beads:sync-pull` — reconcile tools → bd |
+| `scripts/gbsync.py` · `gbsync.sh` | the push/pull sync dispatcher |
+| `adapters/*.py` | github · jira · asana · azure-boards adapters |
+| `adapters/_contract.md` | the adapter interface spec |
+| `hooks/session-start.sh` | "integration active" reminder when both dirs present |
 | `scripts/gsd-beads-init.sh` | the bootstrap script (git + bd init) |
+| `templates/sync.json.example` | starter sync config |
 
 ## License
 

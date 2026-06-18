@@ -85,6 +85,15 @@ Run the `/gsd-beads:init` command (or `gsd-beads-init.sh`) to ensure `git` +
 `bd init` are done so this skill activates, then run `/gsd:new-project` to
 create `.planning/`.
 
+## Mirror to external tools (optional)
+
+If the repo also has `.gsd-beads/sync.json` with an enabled backend, bd issues
+are mirrored two-way (hub-and-spoke) to GitHub Issues / Jira / Asana / Azure
+Boards — see the **`gsd-beads-sync`** skill. PUSH the matching mirror right
+after each bd lifecycle write (`create` / claim→`update` / `close`); reconcile
+external edits back with `/gsd-beads:sync-pull`. Configure via
+`/gsd-beads:sync-config`.
+
 ## Project-specific extensions
 
 A project's own `CLAUDE.md` may extend this with project-specific steps

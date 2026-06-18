@@ -1,7 +1,7 @@
 {
   "name": "gsd-beads",
-  "version": "0.1.0",
-  "description": "Wires the GSD planning workflow (/gsd:*) to the beads issue tracker (bd) so phase planning and execution create, claim, and close tracked work. Activates only in repos that use both GSD (.planning/) and beads (.beads/).",
+  "version": "0.2.0",
+  "description": "Wires the GSD planning workflow (/gsd:*) to the beads issue tracker (bd), and optionally mirrors bd issues two-way (hub-and-spoke) to GitHub Issues, Jira, Asana, and Azure Boards. Activates only in repos that use both GSD (.planning/) and beads (.beads/).",
   "author": {
     "name": "BigJiggity",
     "url": "https://github.com/BigJiggity"
@@ -17,6 +17,11 @@
     "bd",
     "planning",
     "issue-tracker",
-    "workflow"
+    "workflow",
+    "github",
+    "jira",
+    "asana",
+    "azure-boards",
+    "sync"
   ]
 }
