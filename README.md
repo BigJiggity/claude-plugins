@@ -1,7 +1,21 @@
 # claude-plugins
 
-Monorepo of Claude Code plugins by BigJiggity.
+Marketplace of Claude Code plugins by BigJiggity.
+
+## Install the marketplace
+
+```text
+/plugin marketplace add BigJiggity/claude-plugins
+```
 
 ## Plugins
 
-- **gsd+beads** — wires the GSD planning workflow (`/gsd:*`) to the beads issue tracker (`bd`) so phase planning and execution close tracked work. _(scaffolding in progress)_
+| Plugin | Description |
+|---|---|
+| [**gsd-beads**](./gsd+beads) | Wires the GSD planning workflow (`/gsd:*`) to the beads issue tracker (`bd`) so phase planning and execution create, claim, and close tracked work. Activates only in repos that use both. |
+
+Install a plugin:
+
+```text
+/plugin install gsd-beads@claude-plugins
+```

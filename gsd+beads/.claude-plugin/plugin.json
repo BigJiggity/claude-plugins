@@ -1,0 +1,22 @@
+{
+  "name": "gsd-beads",
+  "version": "0.1.0",
+  "description": "Wires the GSD planning workflow (/gsd:*) to the beads issue tracker (bd) so phase planning and execution create, claim, and close tracked work. Activates only in repos that use both GSD (.planning/) and beads (.beads/).",
+  "author": {
+    "name": "BigJiggity",
+    "url": "https://github.com/BigJiggity"
+  },
+  "homepage": "https://github.com/BigJiggity/claude-plugins/tree/main/gsd%2Bbeads",
+  "repository": "https://github.com/BigJiggity/claude-plugins",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "gsd",
+    "get-shit-done",
+    "beads",
+    "bd",
+    "planning",
+    "issue-tracker",
+    "workflow"
+  ]
+}
