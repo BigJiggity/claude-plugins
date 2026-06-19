@@ -77,6 +77,10 @@ changes. Adapters read API tokens from environment variables named in
 > Azure Boards adapters are implemented to each tool's REST spec; supply the
 > relevant API token env var to use them.
 
+**📖 Full guide:** [`docs/sync.md`](./docs/sync.md) — architecture, data model,
+the reconciliation algorithm, per-backend setup, the adapter contract, security,
+and troubleshooting.
+
 ## Components
 
 | Path | Purpose |
