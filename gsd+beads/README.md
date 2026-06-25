@@ -111,6 +111,10 @@ Setup:
 The `gsd-beads-context` skill activates once that config exists and the `ctx_*`
 tools are available.
 
+**📖 Full guide:** [`docs/context.md`](./docs/context.md) — the layered model,
+the source-label convention, the three behaviors, configuration, capability
+boundaries, and troubleshooting.
+
 ## Components
 
 | Path | Purpose |
