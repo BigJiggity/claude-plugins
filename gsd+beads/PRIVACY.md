@@ -1,6 +1,6 @@
 # Privacy Policy — gsd-beads
 
-_Last updated: 2026-06-19_
+_Last updated: 2026-06-24_
 
 `gsd-beads` is an open-source Claude Code plugin. It runs **entirely on your own
 machine**. The author operates no servers, collects no telemetry, and receives
@@ -32,6 +32,19 @@ respectively. Review theirs for how they handle the data you mirror.
 
 If you enable **no** backends, the plugin sends no data anywhere.
 
+## Context-mode integration (local memory only)
+
+The optional context-mode integration (`.gsd-beads/context.json`,
+`gsd-beads-context` skill) sends **no data anywhere**. It only adds labels to,
+and runs searches against, the local knowledge base owned by the separate
+[context-mode](https://github.com/mksglu/context-mode) plugin — all on your
+machine. It transmits nothing to the author or any third party, and it is
+**non-destructive**: it never deletes that knowledge base (it never calls
+`ctx_purge`); any wipe is a manual action you take yourself. context-mode is a
+separate plugin governed by **its own** behavior and policy; review that project
+for how it stores data locally. `context.json` (committed) holds only switches
+and a numeric threshold — no secrets.
+
 ## Credentials and secrets
 
 - API tokens are read from **environment variables** whose *names* you put in
@@ -45,9 +58,11 @@ If you enable **no** backends, the plugin sends no data anywhere.
 ## Local files
 
 The plugin reads and writes files inside your repository: `.beads/`,
-`.planning/`, and `.gsd-beads/` (`id-map.json`, `state.json`, `conflicts.json`).
-These stay in your working tree under your control. The generated state files are
-gitignored by default; whether to commit them is your choice.
+`.planning/`, and `.gsd-beads/` (`sync.json`, `context.json`, `id-map.json`,
+`state.json`, `conflicts.json`). These stay in your working tree under your
+control. The generated state files are gitignored by default; `sync.json` and
+`context.json` are meant to be committed and whether to commit the rest is your
+choice.
 
 ## Changes
 
