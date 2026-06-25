@@ -2,7 +2,7 @@
 
 _Last updated: 2026-06-24_
 
-`cairn` is an open-source Claude Code plugin. It runs **entirely on your own
+Cairn is an open-source Claude Code plugin. It runs **entirely on your own
 machine**. The author operates no servers, collects no telemetry, and receives
 no data from your use of the plugin.
 

@@ -4,8 +4,8 @@
 > took. This plugin does the same for a project: it stacks **plan → work →
 > memory** into one marker so a solo build stays on-trail.*
 
-A Claude Code plugin that wires the [GSD](https://github.com/) planning
-workflow (`/gsd:*`, `.planning/`) to the [beads](https://github.com/gastownhall/beads)
+**Cairn** is a Claude Code plugin that wires the [GSD](https://github.com/)
+planning workflow (`/gsd:*`, `.planning/`) to the [beads](https://github.com/gastownhall/beads)
 issue tracker (`bd`, `.beads/`) so phase planning and execution **create,
 claim, and close** tracked work automatically — and optionally makes the
 [context-mode](https://github.com/mksglu/context-mode) knowledge base
@@ -90,8 +90,8 @@ and troubleshooting.
 ## Intent-aware memory (context-mode integration, optional)
 
 If you also run the [context-mode](https://github.com/mksglu/context-mode)
-plugin, this gives its knowledge base **architectural awareness**. context-mode
-compresses runtime data well but is blind to *what the work is*; this layer ties
+plugin, Cairn gives its knowledge base **architectural awareness**. context-mode
+compresses runtime data well but is blind to *what the work is*; Cairn ties
 its memory to the **active bd issue** and **GSD phase**:
 
 - **Scope by intent** — index during execution under a `source` label
@@ -142,7 +142,7 @@ boundaries, and troubleshooting.
 
 ## Privacy
 
-`cairn` runs entirely on your machine, collects no telemetry, and sends data
+Cairn runs entirely on your machine, collects no telemetry, and sends data
 only to the external trackers you explicitly enable (using your own
 credentials). See [`PRIVACY.md`](./PRIVACY.md).
 
