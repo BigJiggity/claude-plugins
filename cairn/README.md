@@ -40,7 +40,7 @@ non-GSD or non-beads repos.
 
 ```text
 /plugin marketplace add BigJiggity/claude-plugins
-/plugin install cairn@claude-plugins
+/plugin install cairn@bigjiggity
 ```
 
 ## Use

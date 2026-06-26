@@ -17,5 +17,5 @@ Marketplace of Claude Code plugins by BigJiggity.
 Install a plugin:
 
 ```text
-/plugin install cairn@claude-plugins
+/plugin install cairn@bigjiggity
 ```
